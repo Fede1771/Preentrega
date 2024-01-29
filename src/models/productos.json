@@ -1,0 +1,122 @@
+[
+  {
+    "title": "Mate",
+    "description": "Playadito",
+    "price": "1500",
+    "img": "Sin Imagen",
+    "code": "abc123",
+    "stock": "150",
+    "category": "Almacen",
+    "status": true,
+    "thumbnails": [],
+    "id": 1
+  },
+  {
+    "title": "Té",
+    "description": "Verde",
+    "price": 2800,
+    "img": "Sin Imagen",
+    "code": "jkl1125",
+    "stock": 15,
+    "category": "Desayuno",
+    "status": true,
+    "thumbnails": [],
+    "id": 2
+  },
+  {
+    "title": "Harina",
+    "description": "Molinos",
+    "price": "3500",
+    "img": "Sin Imagen",
+    "code": "abc125",
+    "stock": "150",
+    "category": "Almacen",
+    "status": true,
+    "thumbnails": [],
+    "id": 3
+  },
+  {
+    "title": "Detergente",
+    "description": "Fragancia fresca",
+    "price": 12000,
+    "img": "Sin Imagen",
+    "code": "jkl012",
+    "stock": 40,
+    "category": "Limpieza",
+    "status": true,
+    "thumbnails": [],
+    "id": 4
+  },
+  {
+    "title": "Yerba",
+    "description": "marolio",
+    "price": 12000,
+    "img": "Sin Imagen",
+    "code": "abc127",
+    "stock": 30,
+    "category": "Almacen",
+    "status": true,
+    "thumbnails": [],
+    "id": 5
+  },
+  {
+    "title": "Chocolate",
+    "description": "Con almendras",
+    "price": 18000,
+    "img": "Sin Imagen",
+    "code": "mno456",
+    "stock": 20,
+    "category": "Dulces",
+    "status": true,
+    "thumbnails": [],
+    "id": 6
+  },
+  {
+    "title": "Arroz",
+    "description": "Grano largo",
+    "price": 8000,
+    "img": "Sin Imagen",
+    "code": "def789",
+    "stock": 50,
+    "category": "Alimentos",
+    "status": true,
+    "thumbnails": [],
+    "id": 7
+  },
+  {
+    "title": "Aceite de oliva",
+    "description": "Extra virgen",
+    "price": 25000,
+    "img": "Sin Imagen",
+    "code": "ghi345",
+    "stock": 15,
+    "category": "Cocina",
+    "status": true,
+    "thumbnails": [],
+    "id": 8
+  },
+  {
+    "title": "Leche",
+    "description": "Entera, 1 litro",
+    "price": 5000,
+    "img": "Sin Imagen",
+    "code": "pqr789",
+    "stock": 35,
+    "category": "Lácteos",
+    "status": true,
+    "thumbnails": [],
+    "id": 9
+  },
+  {
+    "title": "Flan",
+    "description": "Mixto",
+    "price": 3500,
+    "img": "Sin Imagen",
+    "code": "cd1678",
+    "stock": 15,
+    "category": "Postre",
+    "status": true,
+    "thumbnails": [],
+    "id": 10
+  }
+]
