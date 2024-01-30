@@ -97,41 +97,51 @@ class ProductManager {
 
   async updateProduct(id, productoActualizado) {
     try {
-      const arrayProductos = await this.leerArchivo();
+        const arrayProductos = await this.leerArchivo();
 
-      const index = arrayProductos.findIndex(item => item.id === id);
+        const index = arrayProductos.findIndex(item => item.id === id);
 
-      if (index !== -1) {
-        arrayProductos[index] = { ...arrayProductos[index], ...productoActualizado };
-        await this.guardarArchivo(arrayProductos);
-        console.log("Producto actualizado");
-      } else {
-        console.log("No se encontró el producto");
-      }
+        if (index !== -1) {
+            // Si el producto existe, actualízalo.
+            arrayProductos[index] = { ...arrayProductos[index], ...productoActualizado };
+            await this.guardarArchivo(arrayProductos);
+            console.log("Producto actualizado");
+            return true;
+        } else {
+            // Si el producto no existe, elimínalo.
+            console.log("No se encontró el producto");
+            await this.deleteProduct(id);
+            return false;
+        }
     } catch (error) {
-      console.log("Error al actualizar el producto", error);
-      throw error;
+        console.log("Error al actualizar/eliminar el producto", error);
+        throw error;
     }
-  }
+}
 
   async deleteProduct(id) {
     try {
-      const arrayProductos = await this.leerArchivo();
+        const arrayProductos = await this.leerArchivo();
 
-      const index = arrayProductos.findIndex(item => item.id === id);
+        const index = arrayProductos.findIndex(item => item.id === id);
 
-      if (index !== -1) {
-        arrayProductos.splice(index, 1);
-        await this.guardarArchivo(arrayProductos);
-        console.log("Producto eliminado");
-      } else {
-        console.log("No se encontró el producto");
-      }
+        if (index !== -1) {
+            const deletedProduct = arrayProductos.splice(index, 1)[0];
+            await this.guardarArchivo(arrayProductos);
+            console.log("Producto eliminado");
+            return deletedProduct;
+        } else {
+            console.log("No se encontró el producto");
+            return null;
+        }
     } catch (error) {
-      console.log("Error al eliminar el producto", error);
-      throw error;
+        console.log("Error al eliminar el producto", error);
+        throw error;
     }
-  }
 }
+
+}
+
+
 
 module.exports = ProductManager;

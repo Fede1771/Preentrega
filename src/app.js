@@ -9,6 +9,8 @@ const cartManager = new CartManager("./src/models/carrito.json");
 
 app.use(express.json());
 
+//Sector Productos
+
 //Listar todos los productos
 app.get("/api/products", async (req, res) => {
     try {
@@ -27,7 +29,6 @@ app.get("/api/products", async (req, res) => {
 })
 
 //Traer un solo producto por id: 
-
 app.get("/api/products/:pid", async (req, res) => {
     let id = req.params.pid;
 
@@ -48,7 +49,6 @@ app.get("/api/products/:pid", async (req, res) => {
 })
 
 //Agregar un nuevo producto por post: 
-
 app.post("/api/products", async (req, res) => {
     const nuevoProducto = req.body; 
     console.log(nuevoProducto);
@@ -63,31 +63,31 @@ app.post("/api/products", async (req, res) => {
 })
 
 //Actualizamos producto por id: 
-
 app.put("/api/products/:pid", async (req, res) => {
-    let id = req.params.pid; 
-    const productoActualizado = req.body; 
+    let id = parseInt(req.params.pid);
+    const productoActualizado = req.body;
 
     try {
-        const productoModificado = await productManager.updateProduct(parseInt(id), productoActualizado);
+        const productoModificado = await productManager.updateProduct(id, productoActualizado);
 
         if (productoModificado) {
             res.json({ message: "Producto actualizado correctamente" });
         } else {
-            res.status(404).json({ error: "Producto no encontrado" });
+            res.json({ message: "Producto no encontrado o eliminado correctamente" });
         }
     } catch (error) {
-        console.log("No pudimos actualizar", error); 
-        res.status(500).json({ error: "Error del server" });
+        console.log("No pudimos actualizar", error);
+        res.status(500).json({ error: "Error del servidor" });
     }
 });
 
+
 // Eliminar un producto por id
 app.delete("/api/products/:pid", async (req, res) => {
-    let id = req.params.pid;
+    let id = parseInt(req.params.pid);
 
     try {
-        const productoEliminado = await productManager.deleteProduct(parseInt(id));
+        const productoEliminado = await productManager.deleteProduct(id);
 
         if (productoEliminado) {
             res.json({
@@ -103,8 +103,10 @@ app.delete("/api/products/:pid", async (req, res) => {
         console.log("Error al eliminar el producto", error);
         res.status(500).json({ error: "Error del servidor" });
     }
-    
 });
+
+
+//Sector Carrito
 
 // Crear un nuevo carrito
 app.post("/api/carts", async (req, res) => {
@@ -155,7 +157,6 @@ app.get("/api/carts/:cid/products/:pid", async (req, res) => {
     }
 });
 
-
 // Ruta para obtener los productos de un carrito específico
 app.get("/api/carts/:cid", async (req, res) => {
     const cartId = parseInt(req.params.cid);
@@ -193,9 +194,5 @@ app.get("/api/carts/:cid", async (req, res) => {
         }
     }
 });
-
-
-
-  
 
 app.listen(PUERTO);

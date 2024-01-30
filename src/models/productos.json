@@ -106,17 +106,5 @@
     "status": true,
     "thumbnails": [],
     "id": 9
-  },
-  {
-    "title": "Flan",
-    "description": "Mixto",
-    "price": 3500,
-    "img": "Sin Imagen",
-    "code": "cd1678",
-    "stock": 15,
-    "category": "Postre",
-    "status": true,
-    "thumbnails": [],
-    "id": 10
   }
 ]
